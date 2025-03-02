@@ -2,13 +2,15 @@
 <html>
 <head>
   <script type="text/javascript">
-    const redirectUrl = "https://youtube.com/somevideo"; // Change URL here only
+    // Check if JavaScript is enabled, and redirect if it is
+    const redirectUrl = document.documentElement.getAttribute('data-redirect-url');
     window.location.href = redirectUrl;
   </script>
 </head>
-<body>
+<body data-redirect-url="https://youtube.com/somevideo">
   <p>If you are not redirected, <a id="fallback-link" href="#">click here</a>.</p>
   <script type="text/javascript">
+    // Update fallback link if JS is enabled
     document.getElementById('fallback-link').href = redirectUrl;
   </script>
 </body>
