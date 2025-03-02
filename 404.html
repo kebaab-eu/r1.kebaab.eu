@@ -17,11 +17,53 @@
         p {
             font-size: 20px;
         }
+        .flags {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+        .flags img {
+            width: 30px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+    <!-- Flags for language selection -->
+    <div class="flags">
+        <a href="/en"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="English"></a>
+        <a href="/de"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" alt="German"></a>
+        <a href="/sk"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Slovakia.svg" alt="Slovak"></a>
+        <a href="/cz"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_the_Czech_Republic.svg" alt="Czech"></a>
+        <a href="/fr"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="French"></a>
+        <a href="/es"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Spanish"></a>
+    </div>
+
     <h1>404 - Page Not Found</h1>
-    <p>Oops! The page you're looking for does not exist.</p>
-    <p><a href="/">Go back to the homepage</a></p>
+    <p>Oops! The page you're looking for does not exist or has moved.</p>
+    <p>Feel free to use the language flags in the top right corner to switch to your preferred language.</p>
+
+    <!-- Translations -->
+    <div id="translations" style="margin-top: 50px;">
+        <p id="english" style="display:none;">
+            Oops! The page you're looking for does not exist or has moved.
+        </p>
+        <p id="german" style="display:none;">
+            Oops! Die Seite, nach der Sie suchen, existiert nicht oder wurde verschoben.
+        </p>
+        <p id="slovak" style="display:none;">
+            Oops! Stránka, ktorú hľadáte, neexistuje alebo bola presunutá.
+        </p>
+        <p id="czech" style="display:none;">
+            Oops! Stránka, kterou hledáte, neexistuje nebo byla přesunuta.
+        </p>
+        <p id="french" style="display:none;">
+            Oups! La page que vous recherchez n'existe pas ou a été déplacée.
+        </p>
+        <p id="spanish" style="display:none;">
+            ¡Vaya! La página que buscas no existe o ha sido movida.
+        </p>
+    </div>
 </body>
 </html>
