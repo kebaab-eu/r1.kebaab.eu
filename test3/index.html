@@ -7,6 +7,9 @@
   </script>
 </head>
 <body>
-  <p>If you are not redirected, <a href="javascript:window.location.href=redirectUrl">click here</a>.</p>
+  <p>If you are not redirected, <a id="fallback-link" href="#">click here</a>.</p>
+  <script type="text/javascript">
+    document.getElementById('fallback-link').href = redirectUrl;
+  </script>
 </body>
 </html>
