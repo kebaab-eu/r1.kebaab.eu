@@ -46,20 +46,26 @@
       border-radius: 8px;
       border: 1px solid #ccc;
     }
+    .flag {
+      width: 16px;
+      height: 12px;
+      margin-right: 5px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 id="message">This redirect has been deleted.</h1>
+    <h1 id="message">This redirect was deleted or moved.</h1>
     <p id="link">The link you tried to visit: <span id="url"></span></p>
     <select id="language" onchange="changeLanguage()">
-      <option value="en">English</option>
-      <option value="sk">Slovak</option>
-      <option value="cs">Czech</option>
-      <option value="de">German</option>
-      <option value="fr">French</option>
-      <option value="es">Spanish</option>
-      <option value="it">Italian</option>
+      <option value="en"><img src="https://flagcdn.com/w40/gb.png" class="flag" alt="English"> English</option>
+      <option value="sk"><img src="https://flagcdn.com/w40/sk.png" class="flag" alt="Slovak"> Slovak</option>
+      <option value="cs"><img src="https://flagcdn.com/w40/cz.png" class="flag" alt="Czech"> Czech</option>
+      <option value="de"><img src="https://flagcdn.com/w40/de.png" class="flag" alt="German"> German</option>
+      <option value="fr"><img src="https://flagcdn.com/w40/fr.png" class="flag" alt="French"> French</option>
+      <option value="es"><img src="https://flagcdn.com/w40/es.png" class="flag" alt="Spanish"> Spanish</option>
+      <option value="it"><img src="https://flagcdn.com/w40/it.png" class="flag" alt="Italian"> Italian</option>
+      <option value="ru"><img src="https://flagcdn.com/w40/ru.png" class="flag" alt="Russian"> Russian</option>
     </select>
   </div>
 
@@ -69,13 +75,14 @@
 
   <script>
     const messages = {
-      en: { message: "This redirect has been deleted.", link: "The link you tried to visit: " },
-      sk: { message: "Toto presmerovanie bolo vymazané.", link: "Odkaz, ktorý ste sa pokúsili navštíviť: " },
-      cs: { message: "Toto přesměrování bylo smazáno.", link: "Odkaz, který jste se pokusili navštívit: " },
-      de: { message: "Diese Weiterleitung wurde gelöscht.", link: "Der Link, den Sie besuchen wollten: " },
-      fr: { message: "Cette redirection a été supprimée.", link: "Le lien que vous avez essayé de visiter : " },
-      es: { message: "Esta redirección ha sido eliminada.", link: "El enlace que intentaste visitar: " },
-      it: { message: "Questo reindirizzamento è stato eliminato.", link: "Il link che hai provato a visitare: " }
+      en: { message: "This redirect was deleted or moved.", link: "The link you tried to visit: " },
+      sk: { message: "Toto presmerovanie bolo vymazané alebo presunuté.", link: "Odkaz, ktorý ste sa pokúsili navštíviť: " },
+      cs: { message: "Toto přesměrování bylo smazáno nebo přesunuto.", link: "Odkaz, který jste se pokusili navštívit: " },
+      de: { message: "Diese Weiterleitung wurde gelöscht oder verschoben.", link: "Der Link, den Sie besuchen wollten: " },
+      fr: { message: "Cette redirection a été supprimée ou déplacée.", link: "Le lien que vous avez essayé de visiter : " },
+      es: { message: "Esta redirección ha sido eliminada o movida.", link: "El enlace que intentaste visitar: " },
+      it: { message: "Questo reindirizzamento è stato eliminato o spostato.", link: "Il link che hai provato a visitare: " },
+      ru: { message: "Этот редирект был удалён или перемещён.", link: "Ссылка, по которой вы пытались перейти: " }
     };
 
     const userLang = navigator.language.slice(0, 2);
