@@ -5,21 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirect Deleted</title>
   <style>
-    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f3f4f6; }
-    .container { text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #dfeeff, #b3d9ff, #e6f7ff);
+      animation: gradient 6s ease infinite;
+      background-size: 400% 400%;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
     h1 { font-size: 2rem; margin-bottom: 0.5rem; }
     p { font-size: 1rem; color: #555; }
-    footer { margin-top: 2rem; font-size: 0.875rem; color: #777; }
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #777;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 0.5rem 0;
+    }
+    select {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1 id="message">This redirect has been deleted.</h1>
     <p id="link">The link you tried to visit: <span id="url"></span></p>
-    <footer>
-      © 2025 kebaab.eu | Contact: <a href="mailto:contact@kebaab.eu">contact@kebaab.eu</a>
-    </footer>
+    <select id="language" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="sk">Slovak</option>
+      <option value="cs">Czech</option>
+      <option value="de">German</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+      <option value="it">Italian</option>
+    </select>
   </div>
+
+  <footer>
+    © 2025 kebaab.eu | Contact: <a href="mailto:contact@kebaab.eu">contact@kebaab.eu</a>
+  </footer>
 
   <script>
     const messages = {
@@ -36,7 +82,13 @@
     const lang = messages[userLang] ? userLang : 'en';
 
     document.getElementById("message").textContent = messages[lang].message;
-    document.getElementById("link").innerHTML = messages[lang].link + `<span id="url">${window.location.pathname}</span>`;
+    document.getElementById("link").innerHTML = messages[lang].link + `<span id="url">${window.location.href}</span>`;
+
+    function changeLanguage() {
+      const selectedLang = document.getElementById("language").value;
+      document.getElementById("message").textContent = messages[selectedLang].message;
+      document.getElementById("link").innerHTML = messages[selectedLang].link + `<span id="url">${window.location.href}</span>`;
+    }
   </script>
 </body>
 </html>
