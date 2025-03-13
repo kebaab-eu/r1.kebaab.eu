@@ -1,11 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <script type="text/javascript">
-    window.location.href = "/404/en";
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirect Deleted</title>
+  <style>
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f3f4f6; }
+    .container { text-align: center; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    p { font-size: 1rem; color: #555; }
+    footer { margin-top: 2rem; font-size: 0.875rem; color: #777; }
+  </style>
 </head>
 <body>
-  <p>If you are not redirected, <a href=/404/en">click here</a>.</p>
+  <div class="container">
+    <h1 id="message">This redirect has been deleted.</h1>
+    <p id="link">The link you tried to visit: <span id="url"></span></p>
+    <footer>
+      © 2025 kebaab.eu | Contact: <a href="mailto:contact@kebaab.eu">contact@kebaab.eu</a>
+    </footer>
+  </div>
+
+  <script>
+    const messages = {
+      en: { message: "This redirect has been deleted.", link: "The link you tried to visit: " },
+      sk: { message: "Toto presmerovanie bolo vymazané.", link: "Odkaz, ktorý ste sa pokúsili navštíviť: " },
+      cs: { message: "Toto přesměrování bylo smazáno.", link: "Odkaz, který jste se pokusili navštívit: " },
+      de: { message: "Diese Weiterleitung wurde gelöscht.", link: "Der Link, den Sie besuchen wollten: " },
+      fr: { message: "Cette redirection a été supprimée.", link: "Le lien que vous avez essayé de visiter : " },
+      es: { message: "Esta redirección ha sido eliminada.", link: "El enlace que intentaste visitar: " },
+      it: { message: "Questo reindirizzamento è stato eliminato.", link: "Il link che hai provato a visitare: " }
+    };
+
+    const userLang = navigator.language.slice(0, 2);
+    const lang = messages[userLang] ? userLang : 'en';
+
+    document.getElementById("message").textContent = messages[lang].message;
+    document.getElementById("link").innerHTML = messages[lang].link + `<span id="url">${window.location.pathname}</span>`;
+  </script>
 </body>
 </html>
